@@ -1,6 +1,6 @@
 ---
 qdr_dns_servers: 10.19.110.3
-qdr_image: quay.io/interconnectedcloud/qdrouterd
+qdr_image: 192.168.24.1:8787/qdrouterd
 qdr_image_tag: 1.5.0
 qdr_config_files: /opt/qdrouterd/etc
 
@@ -19,6 +19,6 @@ listeners:
 connectors:
     - name: central-qdr
       role: inter-router
-      host: qdr-white-normal-sa-telemetry.apps.dev7.nfvpe.site
-      port: 443
+      host: qdr-white.sa-telemetry.svc.cluster.local
+      port: 31238
       verify_hostname: false

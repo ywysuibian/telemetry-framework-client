@@ -13,10 +13,23 @@
         name: ansible-docker-prereq
       when: docker_modules_prereqs | default(true)
 
+    - name: Update the /etc/hosts file with node name
+      tags: etchostsupdate
+      become: yes
+      become_user: root
+      lineinfile:
+        path: /etc/hosts
+        regexp: '.*qdr-white.sa-telemetry.svc.cluster.local'
+        line: '9.115.76.117     qdr-white.sa-telemetry.svc.cluster.local'
+        state: present
+        backup: yes
+
     - name: Install QPID dispatch router (QDR)
+      become_user: root
       include_role:
         name: telemetry.qdr-deployer
 
     - name: Install collectd
+      become_user: root
       include_role:
         name: telemetry.collectd-deployer
