@@ -33,3 +33,7 @@
       become_user: root
       include_role:
         name: telemetry.collectd-deployer
+
+    - name: Restart QDR
+      become_user: root
+      command: docker restart qdr
