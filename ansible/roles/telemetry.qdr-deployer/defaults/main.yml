@@ -20,5 +20,5 @@ connectors:
     - name: central-qdr
       role: inter-router
       host: qdr-white.sa-telemetry.svc.cluster.local
-      port: 31238
+      port: 31238 # 5671
       verify_hostname: false
