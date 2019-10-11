@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Restart QDR
+      become_user: root
+      command: docker restart qdr
